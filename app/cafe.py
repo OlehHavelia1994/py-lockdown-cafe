@@ -1,6 +1,6 @@
 from datetime import date
 
-from errors import NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError
+from errors import (NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError)
 
 
 class Cafe():
@@ -13,6 +13,6 @@ class Cafe():
         elif visitor["vaccine"]["expiration_date"] < date.today():
             raise OutdatedVaccineError("All friends should be vaccinated")
         elif not visitor["wearing_a_mask"]:
-            raise NotWearingMaskError
+            raise NotWearingMaskError("Visitor is not wearing a mask")
         else:
-            return f"Friends can go to {self.name}"
+            return f"Welcome to {self.name}"
